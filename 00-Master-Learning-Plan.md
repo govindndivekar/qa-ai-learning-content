@@ -121,7 +121,6 @@ Install these before Month 1 so you never break study flow to fight tooling:
 ### Folder layout suggestion
 
 ```
-C:\Users\Govind\Documents\Claude\Projects\Interview Prep\     ← these markdown plans
 C:\Dev\learning\
     ├── 01-ai\
     ├── 02-typescript\
