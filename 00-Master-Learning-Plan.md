@@ -1,7 +1,7 @@
 # Master Learning Plan — From Scratch to Expert (QA + Dev, AI-Era)
 
 > **Owner:** Govind Divekar
-> **Goal:** Reach interview-ready, independent working ability across 13 subjects spanning AI, QA automation, development, cloud, databases, knowledge graphs, and vector search.
+> **Goal:** Reach interview-ready, independent working ability across 15 subjects spanning AI, QA automation, development, cloud, databases, knowledge graphs, vector search, and developer tooling (Maven, Git).
 > **Timeline:** 6 months (balanced, part-time study — ~15–20 hrs/week). If you can manage 20+ hrs/week, consider 5.5 months.
 > **Assumed starting level:** QA tester with some coding exposure.
 > **Deliverable style:** Structured study plans (this set of markdown files).
@@ -41,12 +41,13 @@ For every topic, do three passes instead of trying to understand it in one sitti
 
 The schedule stacks foundations early and layers AI/Palantir/cloud in the second half. Interview Prep runs in parallel from Month 4 onwards so you always have fresh material to discuss in interviews.
 
-### Month 1 — Programming Foundations
+### Month 1 — Programming Foundations + Developer Tooling
 
-- **Weeks 1–2:** TypeScript (file 02) — core language + tooling.
-- **Weeks 3–4:** Python for AI & Automation (file 04) — core Python + virtualenvs + pytest.
+- **Week 1:** Git (file 15) — three trees, branching, rebase, PR workflow, hooks. Set this up first so every subsequent exercise is committed cleanly.
+- **Weeks 2–3:** TypeScript (file 02) — core language + tooling.
+- **Weeks 3–4 (parallel):** Python for AI & Automation (file 04) — core Python + virtualenvs + pytest.
 
-*Why first:* TS and Python are the "lingua franca" for modern QA automation and AI work. Everything downstream uses them.
+*Why first:* Git is the lifeline for every other subject. TS and Python are the "lingua franca" for modern QA automation and AI work. Everything downstream uses them.
 
 ### Month 2 — Automation & Databases
 
@@ -55,7 +56,7 @@ The schedule stacks foundations early and layers AI/Palantir/cloud in the second
 
 ### Month 3 — Enterprise Stacks & Cloud
 
-- **Weeks 9–10:** Java (file 06) — OOP, collections, streams, JUnit (you will see it in many enterprise shops).
+- **Weeks 9–10:** Java (file 06) — OOP, collections, streams, JUnit (you will see it in many enterprise shops). Pair with Maven (file 14) — POM anatomy, lifecycle, Surefire/Failsafe, JaCoCo. Maven is small enough to learn alongside Java rather than as its own week.
 - **Weeks 11–12:** AWS (file 09) — core services + AI services (Bedrock, SageMaker), CCP-level knowledge.
 
 ### Month 4 — AI Foundations, Local LLMs, Vector Search
@@ -99,6 +100,8 @@ The schedule stacks foundations early and layers AI/Palantir/cloud in the second
 | 11 | `11-Hugging-Face.md` | Hugging Face | Transformers, datasets, fine-tuning, Spaces, Inference API |
 | 12 | `12-Knowledge-Graph.md` | Knowledge Graph | Ontology design, Neo4j/Cypher, RDF/SPARQL, GraphRAG, KG testing |
 | 13 | `13-Vector-Database.md` | Vector Database | Embeddings, ANN (HNSW/IVF/PQ), pgvector/Qdrant/Weaviate/Pinecone, RAG evaluation |
+| 14 | `14-Maven.md` | Maven | POM, lifecycle, dependency management, Surefire/Failsafe, JaCoCo, multi-module, CI |
+| 15 | `15-Git.md` | Git | Object model, branching/rebase, PR workflow, hooks, bisect, recovery, CI integration |
 
 ---
 
@@ -106,11 +109,12 @@ The schedule stacks foundations early and layers AI/Palantir/cloud in the second
 
 Install these before Month 1 so you never break study flow to fight tooling:
 
-- **Git** + a **GitHub** account (you will push every exercise; a public portfolio is part of interview prep).
+- **Git** + a **GitHub** account (you will push every exercise; a public portfolio is part of interview prep). Deep-dive in file 15.
 - **VS Code** with extensions: GitLens, ESLint, Prettier, Python, Pylance, Jupyter, Playwright Test, Java Extension Pack.
 - **Node.js LTS** (via `nvm` / `nvm-windows`).
 - **Python 3.11+** (via `pyenv` or Anaconda/Miniconda).
 - **Java 21 LTS** (via SDKMAN or Adoptium).
+- **Maven 3.9+** (via SDKMAN; or rely on the Maven Wrapper `mvnw` per project — see file 14).
 - **Docker Desktop** — you will need it for databases, local services, and AWS LocalStack.
 - **Postgres** (Docker), **MongoDB Atlas** free tier, **Redis** (Docker).
 - **AWS Free Tier** account.
@@ -135,7 +139,9 @@ C:\Dev\learning\
     ├── 10-ollama\
     ├── 11-huggingface\
     ├── 12-knowledge-graph\
-    └── 13-vector-database\
+    ├── 13-vector-database\
+    ├── 14-maven\
+    └── 15-git\
 ```
 
 Each folder is its own Git repo. Push daily — your commit graph becomes part of your portfolio story.
@@ -207,6 +213,8 @@ You should be able to, without looking things up in the moment:
 - Describe Palantir Foundry's ontology, pipelines, and Workshop apps, and the QA approach for them.
 - Model a domain as a knowledge graph (property graph or RDF), write Cypher/SPARQL, and explain GraphRAG vs vector-only RAG.
 - Stand up a production-ish vector search (HNSW index with metadata filters + hybrid search + re-ranker) and measure Recall@k / NDCG / MRR against a golden set.
+- Read any `pom.xml` fluently, fix dependency conflicts, and configure Surefire/Failsafe/JaCoCo for a multi-module Java project.
+- Drive a Git PR workflow end-to-end — branch, rebase with `--autosquash`, resolve conflicts, recover from a bad reset via `reflog`, and use `bisect` to find a regression.
 - Handle a 45-minute system design interview at a QA-leaning or full-stack-junior level.
 
 If any of those feel uncertain after 6 months, that subject needs another focused week — the plan is flexible by design.
