@@ -1,7 +1,7 @@
 # Master Learning Plan — From Scratch to Expert (QA + Dev, AI-Era)
 
 > **Owner:** Govind Divekar
-> **Goal:** Reach interview-ready, independent working ability across 15 subjects spanning AI, QA automation, development, cloud, databases, knowledge graphs, vector search, and developer tooling (Maven, Git).
+> **Goal:** Reach interview-ready, independent working ability across 18 subjects spanning AI, QA automation, development, cloud, databases, knowledge graphs, vector search, developer tooling (Maven, Git), workflow automation (n8n), and LLM-app frameworks (LangChain, LangGraph).
 > **Timeline:** 6 months (balanced, part-time study — ~15–20 hrs/week). If you can manage 20+ hrs/week, consider 5.5 months.
 > **Assumed starting level:** QA tester with some coding exposure.
 > **Deliverable style:** Structured study plans (this set of markdown files).
@@ -59,24 +59,25 @@ The schedule stacks foundations early and layers AI/Palantir/cloud in the second
 - **Weeks 9–10:** Java (file 06) — OOP, collections, streams, JUnit (you will see it in many enterprise shops). Pair with Maven (file 14) — POM anatomy, lifecycle, Surefire/Failsafe, JaCoCo. Maven is small enough to learn alongside Java rather than as its own week.
 - **Weeks 11–12:** AWS (file 09) — core services + AI services (Bedrock, SageMaker), CCP-level knowledge.
 
-### Month 4 — AI Foundations, Local LLMs, Vector Search
+### Month 4 — AI Foundations, Local LLMs, Vector Search, LLM Frameworks
 
 - **Week 13:** AI Dev + QA (file 01) — ML basics, LLM fundamentals, CT-AI concepts.
-- **Week 14:** Continue AI — CT-GenAI concepts (prompt engineering, RAG, LLMOps).
-- **Week 15:** Ollama (file 10) — run LLMs locally, experiment freely, build a local RAG. In parallel, start Vector Databases (file 13) — embeddings, similarity, ANN fundamentals.
-- **Week 16:** Hugging Face (file 11) — transformers, datasets, pipelines, Spaces. Continue file 13 — finish pgvector/Qdrant, evaluation metrics.
+- **Week 14:** Continue AI — CT-GenAI concepts (prompt engineering, RAG, LLMOps). Start LangChain (file 18) — LCEL, models, prompts, parsers, basic RAG.
+- **Week 15:** Ollama (file 10) — run LLMs locally, build a local RAG. Continue LangChain — retrievers, hybrid search, structured output. Start Vector Databases (file 13) in parallel.
+- **Week 16:** Hugging Face (file 11) — transformers, datasets, pipelines, Spaces. Finish file 13 (pgvector/Qdrant, evaluation metrics). Begin LangGraph (file 17) — StateGraph, ReAct from scratch, checkpoints.
 - **Interview Prep (file 08)**: begin — 30 min/day on DS&A patterns and behavioral.
 
-### Month 5 — Palantir, Knowledge Graphs, Advanced AI Testing
+### Month 5 — Palantir, Knowledge Graphs, Advanced AI Testing, Agent Orchestration
 
 - **Weeks 17–18:** Palantir Dev + QA (file 05) — Foundry ontology, pipelines, Workshop, AIP; testing patterns. Interleave with Knowledge Graphs (file 12): the Ontology concepts transfer directly — Cypher + RDF basics + GraphRAG.
-- **Weeks 19–20:** Return to AI (file 01) — advanced AI testing: adversarial, metamorphic, drift, red teaming, AIP-ready evaluations. Finish Knowledge Graphs capstone (GraphRAG vs vector-only RAG comparison).
+- **Week 19:** LangGraph deep-dive (file 17) — multi-agent (supervisor, swarm), HITL with `interrupt`, plan-and-execute, reflection. Build a real triage agent.
+- **Week 20:** n8n (file 16) — self-host with Docker + Postgres, build the AI Agent + RAG workflows; version JSON in Git. Return to AI (file 01) — advanced AI testing: adversarial, metamorphic, drift, red teaming, AIP-ready evaluations. Finish Knowledge Graphs capstone (GraphRAG vs vector-only RAG comparison).
 - **Interview Prep**: switch focus to system design + QA-leadership scenarios.
 
 ### Month 6 — Integration, Projects, Interview Sprint
 
 - **Week 21:** Capstone 1 — Playwright + Python test framework hitting a small FastAPI app backed by Postgres (tests UI, API, DB).
-- **Week 22:** Capstone 2 — Hybrid RAG for test generation. Use Ollama + Hugging Face + a vector DB (file 13) + a small knowledge graph (file 12) that captures requirements → features → test cases. Compare vector-only RAG vs GraphRAG on a golden set.
+- **Week 22:** Capstone 2 — Hybrid RAG for test generation, *built as a LangGraph agent (file 17) with LangChain retrievers (file 18) and an n8n (file 16) front-end for non-engineers*. Use Ollama + Hugging Face + a vector DB (file 13) + a small knowledge graph (file 12) that captures requirements → features → test cases. Compare vector-only RAG vs GraphRAG on a golden set; trace everything in LangSmith.
 - **Week 23:** Capstone 3 — Deploy something to AWS (Lambda + API Gateway + DynamoDB + Bedrock KB, or SageMaker endpoint) and write the test strategy for it.
 - **Week 24:** Full interview sprint (file 08) — mock interviews, system design drills, behavioral polish, portfolio/resume pass.
 
@@ -102,6 +103,9 @@ The schedule stacks foundations early and layers AI/Palantir/cloud in the second
 | 13 | `13-Vector-Database.md` | Vector Database | Embeddings, ANN (HNSW/IVF/PQ), pgvector/Qdrant/Weaviate/Pinecone, RAG evaluation |
 | 14 | `14-Maven.md` | Maven | POM, lifecycle, dependency management, Surefire/Failsafe, JaCoCo, multi-module, CI |
 | 15 | `15-Git.md` | Git | Object model, branching/rebase, PR workflow, hooks, bisect, recovery, CI integration |
+| 16 | `16-n8n.md` | n8n | Workflow automation, AI Agent node, RAG flows, self-hosting, JSON-in-Git versioning |
+| 17 | `17-LangGraph.md` | LangGraph | StateGraph, cycles, checkpoints, HITL, multi-agent (supervisor/swarm), deployment |
+| 18 | `18-LangChain.md` | LangChain | LCEL, retrievers/RAG, structured output, tools, memory, LangSmith, LangServe |
 
 ---
 
@@ -125,6 +129,7 @@ Install these before Month 1 so you never break study flow to fight tooling:
 ### Folder layout suggestion
 
 ```
+C:\Users\Govind\Documents\Claude\Projects\Interview Prep\     ← these markdown plans
 C:\Dev\learning\
     ├── 01-ai\
     ├── 02-typescript\
@@ -140,7 +145,10 @@ C:\Dev\learning\
     ├── 12-knowledge-graph\
     ├── 13-vector-database\
     ├── 14-maven\
-    └── 15-git\
+    ├── 15-git\
+    ├── 16-n8n\
+    ├── 17-langgraph\
+    └── 18-langchain\
 ```
 
 Each folder is its own Git repo. Push daily — your commit graph becomes part of your portfolio story.
@@ -214,6 +222,9 @@ You should be able to, without looking things up in the moment:
 - Stand up a production-ish vector search (HNSW index with metadata filters + hybrid search + re-ranker) and measure Recall@k / NDCG / MRR against a golden set.
 - Read any `pom.xml` fluently, fix dependency conflicts, and configure Surefire/Failsafe/JaCoCo for a multi-module Java project.
 - Drive a Git PR workflow end-to-end — branch, rebase with `--autosquash`, resolve conflicts, recover from a bad reset via `reflog`, and use `bisect` to find a regression.
+- Compose LLM apps with LangChain LCEL — `prompt | model | parser`, retrievers, structured output, memory — and trace them in LangSmith.
+- Build a stateful, multi-agent LangGraph app with checkpointing and human-in-the-loop, and explain when to choose LangGraph over LangChain or n8n.
+- Self-host n8n, build an AI-Agent + RAG workflow that calls into your real systems, and version the workflow JSON in Git.
 - Handle a 45-minute system design interview at a QA-leaning or full-stack-junior level.
 
 If any of those feel uncertain after 6 months, that subject needs another focused week — the plan is flexible by design.
