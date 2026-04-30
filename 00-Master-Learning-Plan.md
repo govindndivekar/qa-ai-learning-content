@@ -1,7 +1,7 @@
 # Master Learning Plan — From Scratch to Expert (QA + Dev, AI-Era)
 
 > **Owner:** Govind Divekar
-> **Goal:** Reach interview-ready, independent working ability across 18 subjects spanning AI, QA automation, development, cloud, databases, knowledge graphs, vector search, developer tooling (Maven, Git), workflow automation (n8n), and LLM-app frameworks (LangChain, LangGraph).
+> **Goal:** Reach interview-ready, independent working ability across 19 subjects spanning AI, QA automation, development, cloud, databases, knowledge graphs, vector search, developer tooling (Maven, Git), workflow automation (n8n), and LLM/agent frameworks (LangChain, LangGraph, CrewAI).
 > **Timeline:** 6 months (balanced, part-time study — ~15–20 hrs/week). If you can manage 20+ hrs/week, consider 5.5 months.
 > **Assumed starting level:** QA tester with some coding exposure.
 > **Deliverable style:** Structured study plans (this set of markdown files).
@@ -70,7 +70,7 @@ The schedule stacks foundations early and layers AI/Palantir/cloud in the second
 ### Month 5 — Palantir, Knowledge Graphs, Advanced AI Testing, Agent Orchestration
 
 - **Weeks 17–18:** Palantir Dev + QA (file 05) — Foundry ontology, pipelines, Workshop, AIP; testing patterns. Interleave with Knowledge Graphs (file 12): the Ontology concepts transfer directly — Cypher + RDF basics + GraphRAG.
-- **Week 19:** LangGraph deep-dive (file 17) — multi-agent (supervisor, swarm), HITL with `interrupt`, plan-and-execute, reflection. Build a real triage agent.
+- **Week 19:** LangGraph deep-dive (file 17) — multi-agent (supervisor, swarm), HITL with `interrupt`, plan-and-execute, reflection. Build a real triage agent. Mid-week, spend ~6h on CrewAI (file 19) — role-based crews, Flows, the same problem in a different paradigm; explicitly compare CrewAI vs LangGraph in your notes.
 - **Week 20:** n8n (file 16) — self-host with Docker + Postgres, build the AI Agent + RAG workflows; version JSON in Git. Return to AI (file 01) — advanced AI testing: adversarial, metamorphic, drift, red teaming, AIP-ready evaluations. Finish Knowledge Graphs capstone (GraphRAG vs vector-only RAG comparison).
 - **Interview Prep**: switch focus to system design + QA-leadership scenarios.
 
@@ -106,6 +106,7 @@ The schedule stacks foundations early and layers AI/Palantir/cloud in the second
 | 16 | `16-n8n.md` | n8n | Workflow automation, AI Agent node, RAG flows, self-hosting, JSON-in-Git versioning |
 | 17 | `17-LangGraph.md` | LangGraph | StateGraph, cycles, checkpoints, HITL, multi-agent (supervisor/swarm), deployment |
 | 18 | `18-LangChain.md` | LangChain | LCEL, retrievers/RAG, structured output, tools, memory, LangSmith, LangServe |
+| 19 | `19-CrewAI.md` | CrewAI | Role-based multi-agent crews, Flows, tools, memory, knowledge sources, evals |
 
 ---
 
@@ -148,7 +149,8 @@ C:\Dev\learning\
     ├── 15-git\
     ├── 16-n8n\
     ├── 17-langgraph\
-    └── 18-langchain\
+    ├── 18-langchain\
+    └── 19-crewai\
 ```
 
 Each folder is its own Git repo. Push daily — your commit graph becomes part of your portfolio story.
@@ -224,6 +226,7 @@ You should be able to, without looking things up in the moment:
 - Drive a Git PR workflow end-to-end — branch, rebase with `--autosquash`, resolve conflicts, recover from a bad reset via `reflog`, and use `bisect` to find a regression.
 - Compose LLM apps with LangChain LCEL — `prompt | model | parser`, retrievers, structured output, memory — and trace them in LangSmith.
 - Build a stateful, multi-agent LangGraph app with checkpointing and human-in-the-loop, and explain when to choose LangGraph over LangChain or n8n.
+- Stand up a CrewAI crew (3+ role-based agents, Pydantic outputs, knowledge sources, memory) and articulate when CrewAI is the right tool versus LangGraph or AutoGen.
 - Self-host n8n, build an AI-Agent + RAG workflow that calls into your real systems, and version the workflow JSON in Git.
 - Handle a 45-minute system design interview at a QA-leaning or full-stack-junior level.
 
